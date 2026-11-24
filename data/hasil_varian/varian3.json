@@ -1,0 +1,69 @@
+{
+  "varian": 3,
+  "nama": "Pemilihan fitur dan profil klaster",
+  "yang_diubah": "Himpunan fitur: A 5 fitur dibandingkan B 3 fitur, pada k=2",
+  "k_dipakai": 2,
+  "asal_k": "mengikuti hasil Varian 2",
+  "himpunan_A": {
+    "fitur": [
+      "FAVC",
+      "FCVC",
+      "CAEC",
+      "FAF",
+      "TUE"
+    ],
+    "silhouette": 0.406,
+    "davies_bouldin": 1.2397,
+    "inertia": 8264.52
+  },
+  "himpunan_B": {
+    "fitur": [
+      "FAVC",
+      "CAEC",
+      "FAF"
+    ],
+    "silhouette": 0.59,
+    "davies_bouldin": 0.8455,
+    "inertia": 4102.54
+  },
+  "dibuang_kembar": [],
+  "dibuang_datar": [
+    "FCVC",
+    "TUE"
+  ],
+  "himpunan_terpilih": "B",
+  "fitur_terpilih": [
+    "FAVC",
+    "CAEC",
+    "FAF"
+  ],
+  "k_terpilih": 2,
+  "metrik_utama": {
+    "silhouette": 0.59
+  },
+  "metrik_pendukung": {
+    "inertia": 4102.54,
+    "davies_bouldin": 0.8455
+  },
+  "catatan": "Membuang fitur yang tidak membedakan klaster menaikkan mutu pemisahan. Fitur semacam itu hanya menambah dimensi tanpa menambah informasi, sehingga melemahkan perhitungan jarak.",
+  "jumlah_anggota": {
+    "0": 1844,
+    "1": 243
+  },
+  "profil_relatif": {
+    "0": {
+      "FAVC": 0.36,
+      "CAEC": -0.05,
+      "FAF": -0.04
+    },
+    "1": {
+      "FAVC": -2.75,
+      "CAEC": 0.41,
+      "FAF": 0.31
+    }
+  },
+  "nama_otomatis": {
+    "0": "FAVC tinggi, CAEC rendah",
+    "1": "FAVC rendah, CAEC tinggi"
+  }
+}
