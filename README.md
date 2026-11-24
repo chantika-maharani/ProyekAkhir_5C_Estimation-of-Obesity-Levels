@@ -34,6 +34,10 @@ Berdasarkan pemeriksaan mandiri melalui Google Colab:
 
 ---
 
+Pada cabang klastering tidak ada pemisahan data latih dan data uji, karena tidak ada label yang diuji. Pembersihan dilakukan sekali atas seluruh data: buang duplikat (24 baris), pilih lima fitur sesuai proposal (FAVC, FCVC, CAEC, FAF, TUE) dan buang 12 kolom lainnya termasuk label NObeyesdad (dataset ini tidak punya kolom identitas), kodekan FAVC (no=0, yes=1) dan CAEC (no=0, Sometimes=1, Frequently=2, Always=3), imputasi median (tidak ada nilai hilang), lalu pembatasan pencilan dengan IQR 1,5 hanya pada FCVC, FAF, dan TUE. Hasilnya disimpan sebagai data_bersih.csv dan dipakai ketiga varian apa adanya. Penskalaan tidak dilakukan pada tahap pembersihan, melainkan di dalam tiap varian dan sekali lagi saat model final dilatih: StandardScaler di-fit satu kali pada data bersih, lalu disimpan sebagai scaler.pkl dan dipakai aplikasi web dengan transform, bukan fit_transform. Aplikasi web memakai fungsi kodekan yang sama dari alat.py agar masukan pengguna (ya/tidak dan kadang-kadang/sering/selalu) diubah ke angka dengan cara yang sama seperti di notebook. One-hot tidak dipakai; CAEC diperlakukan ordinal dengan asumsi jarak antartingkat sama, yang perlu disebut sebagai keterbatasan.
+
+Mengapa berbeda dari cabang klasifikasi. Pada k-NN urutan wajibnya adalah bersihkan, pisahkan data, baru skalakan — penskalaan sebelum pemisahan membuat statistik data uji bocor ke pelatihan. Pada klastering tidak ada pemisahan, sehingga yang dijaga bukan kebocoran antar-himpunan, melainkan kesamaan skala dan pengodean antara notebook dan aplikasi web.
+
 ### Pertanyaan Analitik
 > Ada berapa kelompok alami responden berdasarkan pola makan dan aktivitas, serta bagaimana masing-masing karakteristik kelompok yang terbentuk dengan menggunakan K-Means?
 
